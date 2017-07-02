@@ -1,11 +1,24 @@
+/*jshint esversion: 6 */
 var dataset = require('./dataset.json');
 
 /*
   create an array with accounts from bankBalances that are
   greater than 100000
   assign the resulting new array to `hundredThousandairs`
+
+
+
 */
-var hundredThousandairs = null;
+
+var filterHundredThousand = dataset.bankBalances.filter((dataset) => {
+  if(parseFloat(dataset.amount) >= 100000){
+  return parseFloat(dataset.amount);
+}
+});
+
+var hundredThousandairs = filterHundredThousand;
+
+
 
 /*
   DO NOT MUTATE DATA.
@@ -163,3 +176,5 @@ module.exports = {
   areStatesInHigherStateSum : areStatesInHigherStateSum,
   anyStatesInHigherStateSum : anyStatesInHigherStateSum
 };
+
+console.log(hundredThousandairs);
