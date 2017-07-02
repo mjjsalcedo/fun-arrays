@@ -37,7 +37,14 @@ var hundredThousandairs = filterHundredThousand;
     }
   assign the resulting new array to `datasetWithRoundedDollar`
 */
-var datasetWithRoundedDollar = null;
+
+var newlyMadeDataRounded = dataset.bankBalances.map((dataset) => {
+  dataset.rounded = Math.round(dataset.amount *100)/100;
+
+  return dataset;
+});
+
+var datasetWithRoundedDollar = newlyMadeDataRounded;
 
 /*
   DO NOT MUTATE DATA.
@@ -177,4 +184,4 @@ module.exports = {
   anyStatesInHigherStateSum : anyStatesInHigherStateSum
 };
 
-console.log(hundredThousandairs);
+console.log(newlyMadeDataRounded);
