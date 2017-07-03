@@ -42,7 +42,7 @@ var newlyMadeDataRounded = dataset.bankBalances.map((dataset) => {
   dataset = {
     "amount": dataset.amount,
     "state": dataset.state,
-    "rounded": Math.round(dataset.amount *100)/100
+    "rounded": Math.round(Math.round((dataset.amount *10))/10)
   };
 
   return dataset;
@@ -73,10 +73,14 @@ var datasetWithRoundedDollar = newlyMadeDataRounded;
     }
   assign the resulting new array to `roundedDime`
 */
-
-/*var newlyMadeDataDime = dataset.bankBalances.map((dataset) =>{
-  dataset['rounded'] = dataset['roundedDime'];
-  dataset['roundedDime']= Math.round(dataset.amount);
+/*
+var newlyMadeDataDime = dataset.bankBalances.map((dataset) =>{
+  dataset = {
+    "amount": dataset.amount,
+    "state": dataset.state,
+    "roundedDime": Math.round((dataset.amount*10))/10
+  };
+  return dataset;
 });*/
 
 var datasetWithRoundedDime = null;
