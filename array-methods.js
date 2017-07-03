@@ -39,7 +39,11 @@ var hundredThousandairs = filterHundredThousand;
 */
 
 var newlyMadeDataRounded = dataset.bankBalances.map((dataset) => {
-  dataset.rounded = Math.round(dataset.amount *100)/100;
+  dataset = {
+    "amount": dataset.amount,
+    "state": dataset.state,
+    "rounded": Math.round(dataset.amount *100)/100
+  };
 
   return dataset;
 });
@@ -69,6 +73,12 @@ var datasetWithRoundedDollar = newlyMadeDataRounded;
     }
   assign the resulting new array to `roundedDime`
 */
+
+/*var newlyMadeDataDime = dataset.bankBalances.map((dataset) =>{
+  dataset['rounded'] = dataset['roundedDime'];
+  dataset['roundedDime']= Math.round(dataset.amount);
+});*/
+
 var datasetWithRoundedDime = null;
 
 // set sumOfBankBalances to be the sum of all value held at `amount` for each bank object
@@ -184,4 +194,4 @@ module.exports = {
   anyStatesInHigherStateSum : anyStatesInHigherStateSum
 };
 
-console.log(newlyMadeDataRounded);
+console.log(datasetWithRoundedDollar);
