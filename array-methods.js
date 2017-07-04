@@ -112,7 +112,30 @@ var sumOfBankBalances = sumBalanceAmount;
   take each `amount` and add 18.9% interest to it rounded to the nearest cent
   and then sum it all up into one value saved to `sumOfInterests`
  */
-var sumOfInterests = null;
+
+var findStates = dataset.bankBalances.filter((dataset) => {
+    if (dataset.state === "WI" || dataset.state === "IL" || dataset.state === "WY"|| dataset.state === "OH" || dataset.state === "GA" || dataset.state === "DE")
+    return dataset.state;
+});
+
+var mapStates = findStates.map((dataset)=> {
+  var rounded = (parseFloat(dataset.amount));
+
+  dataset = {
+    "amount": rounded * .189
+  };
+
+  return dataset.amount;
+});
+
+var sumInterestStates = mapStates.reduce
+((previousState, currentState) => {
+
+    return Math.round((previousState + currentState) *100) /100;
+
+});
+
+var sumOfInterests = sumInterestStates;
 
 /*
   aggregate the sum of bankBalance amounts
@@ -211,4 +234,4 @@ module.exports = {
   anyStatesInHigherStateSum : anyStatesInHigherStateSum
 };
 
-console.log(sumOfBankBalances);
+console.log(sumOfInterests);
